@@ -84,32 +84,60 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 <body dir="rtl">
 
 
-<nav class="top-nav" style="text-align:center; margin-top:15px;">
- 
-  
-  <div class="menu">
-    <a class="lang fa" style="display:none;" href="#about">درباره من</a> 
-    <a class="lang en" style="display:none;" href="#about">About Me</a> |
-    <a class="lang fa" style="display:none;" href="#skills">مهارت‌ها</a> 
-    <a class="lang en" style="display:none;" href="#skills">Skills</a> |
-    <a class="lang fa" style="display:none;" href="#projects">پروژه‌ها</a> 
-    <a class="lang en" style="display:none;" href="#projects">Projects</a> |
-    <a class="lang fa" style="display:none;" href="#experience">تجربه کاری</a> 
-    <a class="lang en" style="display:none;" href="#experience">Work Experience</a> |
-    <a class="lang fa" style="display:none;" href="#education">تحصیلات</a> 
-    <a class="lang en" style="display:none;" href="#education">Education</a> |
-    <a class="lang fa" style="display:none;" href="#languages">زبان‌ها</a> 
-    <a class="lang en" style="display:none;" href="#languages">Languages</a> |
-    <a class="lang fa" style="display:none;" href="#contact">راه ارتباطی</a>
-    <a class="lang en" style="display:none;"  href="#contact">Contact Information</a>
+
+<nav class="top-nav" style="text-align:center; margin-top:15px; position:relative;">
+  <div class="menu" style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center; gap:10px;">
+
+    <!-- فارسی -->
+    <a class="lang fa" href="#about">درباره من</a> |
+    <a class="lang fa" href="#skills">مهارت‌ها</a> |
+    <a class="lang fa" href="#projects">پروژه‌ها</a> |
+    <a class="lang fa" href="#experience">تجربه کاری</a> |
+    <a class="lang fa" href="#education">تحصیلات</a> |
+    <a class="lang fa" href="#languages">زبان‌ها</a> |
+    <a class="lang fa" href="#contact">راه ارتباطی</a>
+
+    <!-- انگلیسی -->
+    <a class="lang en" href="#about" style="display:none;">About Me</a> |
+    <a class="lang en" href="#skills" style="display:none;">Skills</a> |
+    <a class="lang en" href="#projects" style="display:none;">Projects</a> |
+    <a class="lang en" href="#experience" style="display:none;">Work Experience</a> |
+    <a class="lang en" href="#education" style="display:none;">Education</a> |
+    <a class="lang en" href="#languages" style="display:none;">Languages</a> |
+    <a class="lang en" href="#contact" style="display:none;">Contact Information</a>
+
   </div>
- <div class="lang-switch" onclick="switchLang()" title="تغییر زبان">
+
+  <div class="lang-switch" onclick="switchLang()" title="تغییر زبان"
+       style="margin-left:15px; display:flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0d3b66, #1e6091); color:#fff; padding:6px 12px; border-radius:20px; cursor:pointer; font-weight:bold;">
     <span class="flag">🇮🇷</span>
     <span class="divider">/</span>
     <span class="flag">🇬🇧</span>
   </div>
-  
 </nav>
+
+<script>
+function switchLang() {
+  const body = document.body;
+  const faTexts = document.querySelectorAll(".lang.fa");
+  const enTexts = document.querySelectorAll(".lang.en");
+
+  if (body.getAttribute("dir") === "rtl") {
+    // تغییر به انگلیسی
+    body.setAttribute("dir", "ltr");
+    faTexts.forEach(el => el.style.display = "none");
+    enTexts.forEach(el => el.style.display = "inline");
+  } else {
+    // تغییر به فارسی
+    body.setAttribute("dir", "rtl");
+    faTexts.forEach(el => el.style.display = "inline");
+    enTexts.forEach(el => el.style.display = "none");
+  }
+}
+</script>
+
+
+  
 
 <main class="container">
 
