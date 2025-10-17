@@ -273,25 +273,7 @@ function switchLang() {
   </div>
 
 
-  <script>
-function switchLang() {
-  const body = document.body;
-  const faTexts = document.querySelectorAll(".lang.fa");
-  const enTexts = document.querySelectorAll(".lang.en");
-
-  if (body.getAttribute("dir") === "rtl") {
-    // تغییر به انگلیسی
-    body.setAttribute("dir", "ltr");
-    faTexts.forEach(el => el.style.display = "none");
-    enTexts.forEach(el => el.style.display = "block");
-  } else {
-    // تغییر به فارسی
-    body.setAttribute("dir", "rtl");
-    faTexts.forEach(el => el.style.display = "block");
-    enTexts.forEach(el => el.style.display = "none");
-  }
-}
-</script> 
+   
   
 </main>
 
@@ -323,31 +305,26 @@ function switchLang() {
 }
 </script>
 
- 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-function switchLang(){
+ <script>
+function switchLang() {
   const body = document.body;
-  body.classList.toggle('rtl');
-  body.classList.toggle('ltr');
-  document.querySelectorAll('[data-fa]').forEach(el=>{
-    el.innerText = body.classList.contains('rtl')
-      ? el.getAttribute('data-fa')
-      : el.getAttribute('data-en');
-  });
-}
+  const faTexts = document.querySelectorAll(".lang.fa");
+  const enTexts = document.querySelectorAll(".lang.en");
 
-function downloadPDF(){
-  const element = document.querySelector('.container');
-  const opt = {
-    margin: 1,
-    filename: 'Resume_Mehdi_Miri.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-  };
-  html2pdf().set(opt).from(element).save();
+  if (body.getAttribute("dir") === "rtl") {
+    // تغییر به انگلیسی
+    body.setAttribute("dir", "ltr");
+    faTexts.forEach(el => el.style.display = "none");
+    enTexts.forEach(el => el.style.display = "block");
+  } else {
+    // تغییر به فارسی
+    body.setAttribute("dir", "rtl");
+    faTexts.forEach(el => el.style.display = "block");
+    enTexts.forEach(el => el.style.display = "none");
+  }
 }
 </script>
+
+  
 </body>
 </html>
