@@ -116,8 +116,10 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
   </div>
 </nav>
 
-  
 
+<div id="resume">
+
+  
 <main class="container">
 
   <aside class="sidebar" id="contact">
@@ -218,60 +220,53 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 
 
 
-
+<!-- دکمه دانلود PDF -->
 <div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
 <div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- html2pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
-async function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+function downloadPDF() {
+  const body = document.body;
+  const isRTL = body.getAttribute('dir') === 'rtl';
+  
+  // کل محتوای سایت که میخوای PDF بشه
+  const resume = document.getElementById('resume');
 
-   
-    const font = await fetch('assets1/Vazirmatn-Regular.ttf').then(r => r.arrayBuffer());
-    doc.addFileToVFS('Vazir-Regular.ttf', font);
-    doc.addFont('Vazir-Regular.ttf', 'Vazir', 'normal');
-    doc.setFont('Vazir');
+  // نمایش فقط محتوای زبان فعال
+  const faElems = resume.querySelectorAll('.lang.fa');
+  const enElems = resume.querySelectorAll('.lang.en');
 
-    doc.setFontSize(14);
+  if(isRTL) {
+    faElems.forEach(el => el.style.display = 'block');
+    enElems.forEach(el => el.style.display = 'none');
+  } else {
+    faElems.forEach(el => el.style.display = 'none');
+    enElems.forEach(el => el.style.display = 'block');
+  }
 
-    const body = document.body;
-    const isRTL = body.getAttribute('dir') === 'rtl';
-    const elements = isRTL ? document.querySelectorAll('.lang.fa') : document.querySelectorAll('.lang.en');
-    const pageWidth = doc.internal.pageSize.getWidth();
-    let y = 40;
+  const opt = {
+    margin:       10,
+    filename:     isRTL ? 'رزومه.pdf' : 'resume.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, logging: false },
+    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
 
-    elements.forEach(el => {
-      
-        const text = el.innerText.replace(/\|/g,'').trim(); 
-        if(text){
-            const lines = doc.splitTextToSize(text, pageWidth - 80);
-            lines.forEach(line => {
-                if(isRTL){
-                    const textWidth = doc.getTextWidth(line);
-                    doc.text(line, pageWidth - 40 - textWidth, y);
-                } else {
-                    doc.text(line, 40, y);
-                }
-                y += 20;
-                if(y > 800){ doc.addPage(); y = 40; }
-            });
-        }
-    });
-
-    doc.save(isRTL ? 'رزومه.pdf' : 'resume.pdf');
+  html2pdf().set(opt).from(resume).save();
 }
 </script>
 
 
-    
 
 
     
   </div>
 </main>
+
+  </div>
 
 <footer style="text-align:center; padding:20px; color:#777;">
   © 2025 Mehdi Miri | All rights reserved
