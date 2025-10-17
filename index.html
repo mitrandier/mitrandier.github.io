@@ -236,7 +236,8 @@ function downloadPDF() {
   const isRTL = body.getAttribute('dir') === 'rtl';
 
   
-  const resume = document.getElementById('resume');
+  const resume = document.querySelector('main.container');
+
 
 
   const faElems = resume.querySelectorAll('.lang.fa');
