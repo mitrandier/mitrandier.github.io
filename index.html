@@ -262,6 +262,26 @@ function switchLang() {
   </div>
 </main>
 
+  <script>
+function switchLang() {
+  const body = document.body;
+  const faTexts = document.querySelectorAll(".lang.fa");
+  const enTexts = document.querySelectorAll(".lang.en");
+
+  if (body.getAttribute("dir") === "rtl") {
+    // تغییر به انگلیسی
+    body.setAttribute("dir", "ltr");
+    faTexts.forEach(el => el.style.display = "none");
+    enTexts.forEach(el => el.style.display = "block");
+  } else {
+    // تغییر به فارسی
+    body.setAttribute("dir", "rtl");
+    faTexts.forEach(el => el.style.display = "block");
+    enTexts.forEach(el => el.style.display = "none");
+  }
+}
+</script>
+  
 <footer style="text-align:center; padding:20px; color:#777;">
   © 2025 Mehdi Miri | All rights reserved
 </footer>
