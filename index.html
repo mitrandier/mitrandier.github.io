@@ -219,7 +219,6 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 
 
 
-
 <div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
 <div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
@@ -230,31 +229,23 @@ async function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit: 'pt', format: 'a4' });
 
-    
-    const fontUrl = 'https://rawcdn.githack.com/google/fonts/main/ofl/vazirmatn/Vazirmatn-Regular.ttf';
-    const font = await fetch(fontUrl).then(res => res.arrayBuffer());
+   
+    const font = await fetch('assets1/Vazirmatn-Regular.ttf').then(r => r.arrayBuffer());
     doc.addFileToVFS('Vazir-Regular.ttf', font);
     doc.addFont('Vazir-Regular.ttf', 'Vazir', 'normal');
     doc.setFont('Vazir');
 
     doc.setFontSize(14);
 
-    
     const body = document.body;
-    let elements, isRTL;
-    if(body.getAttribute('dir') === 'rtl'){
-        elements = document.querySelectorAll('.lang.fa');
-        isRTL = true;
-    } else {
-        elements = document.querySelectorAll('.lang.en');
-        isRTL = false;
-    }
-
-    let y = 40; 
+    const isRTL = body.getAttribute('dir') === 'rtl';
+    const elements = isRTL ? document.querySelectorAll('.lang.fa') : document.querySelectorAll('.lang.en');
     const pageWidth = doc.internal.pageSize.getWidth();
+    let y = 40;
 
     elements.forEach(el => {
-        const text = el.innerText.trim();
+      
+        const text = el.innerText.replace(/\|/g,'').trim(); 
         if(text){
             const lines = doc.splitTextToSize(text, pageWidth - 80);
             lines.forEach(line => {
@@ -265,17 +256,15 @@ async function downloadPDF() {
                     doc.text(line, 40, y);
                 }
                 y += 20;
-                if(y > 800){  
-                    doc.addPage();
-                    y = 40;
-                }
+                if(y > 800){ doc.addPage(); y = 40; }
             });
         }
     });
 
-    doc.save(body.getAttribute('dir') === 'rtl' ? 'رزومه.pdf' : 'resume.pdf');
+    doc.save(isRTL ? 'رزومه.pdf' : 'resume.pdf');
 }
 </script>
+
 
     
 
