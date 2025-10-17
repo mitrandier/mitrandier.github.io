@@ -220,11 +220,11 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 
 
 
-<!-- دکمه دانلود PDF -->
+
 <div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
 <div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
-<!-- html2pdf -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
@@ -232,10 +232,10 @@ function downloadPDF() {
   const body = document.body;
   const isRTL = body.getAttribute('dir') === 'rtl';
   
-  // کل محتوای سایت که میخوای PDF بشه
+ 
   const resume = document.getElementById('resume');
 
-  // نمایش فقط محتوای زبان فعال
+
   const faElems = resume.querySelectorAll('.lang.fa');
   const enElems = resume.querySelectorAll('.lang.en');
 
@@ -247,7 +247,7 @@ function downloadPDF() {
     enElems.forEach(el => el.style.display = 'block');
   }
 
-  const opt = {
+  const resume = document.querySelector('.main');
     margin:       10,
     filename:     isRTL ? 'رزومه.pdf' : 'resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
