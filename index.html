@@ -88,23 +88,23 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 <nav class="top-nav" style="text-align:center; margin-top:15px; position:relative;">
   <div class="menu" style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center; gap:10px;">
 
-    <!-- فارسی -->
-    <a class="lang fa" href="#about">درباره من</a> |
-    <a class="lang fa" href="#skills">مهارت‌ها</a> |
-    <a class="lang fa" href="#projects">پروژه‌ها</a> |
-    <a class="lang fa" href="#experience">تجربه کاری</a> |
-    <a class="lang fa" href="#education">تحصیلات</a> |
-    <a class="lang fa" href="#languages">زبان‌ها</a> |
-    <a class="lang fa" href="#contact">راه ارتباطی</a>
+    
+    <a class="lang fa" href="#about">درباره من | </a> 
+    <a class="lang fa" href="#skills">مهارت‌ها | </a> 
+    <a class="lang fa" href="#projects">پروژه‌ها | </a> 
+    <a class="lang fa" href="#experience">تجربه کاری | </a> 
+    <a class="lang fa" href="#education">تحصیلات | </a> 
+    <a class="lang fa" href="#languages">زبان‌ها | </a> 
+    <a class="lang fa" href="#contact">راه ارتباطی | </a>
 
-    <!-- انگلیسی -->
-    <a class="lang en" href="#about" style="display:none;">About Me</a> |
-    <a class="lang en" href="#skills" style="display:none;">Skills</a> |
-    <a class="lang en" href="#projects" style="display:none;">Projects</a> |
-    <a class="lang en" href="#experience" style="display:none;">Work Experience</a> |
-    <a class="lang en" href="#education" style="display:none;">Education</a> |
-    <a class="lang en" href="#languages" style="display:none;">Languages</a> |
-    <a class="lang en" href="#contact" style="display:none;">Contact Information</a>
+    
+    <a class="lang en" href="#about" style="display:none;">About Me | </a> 
+    <a class="lang en" href="#skills" style="display:none;">Skills | </a> 
+    <a class="lang en" href="#projects" style="display:none;">Projects | </a> 
+    <a class="lang en" href="#experience" style="display:none;">Experience | </a> 
+    <a class="lang en" href="#education" style="display:none;">Education | </a> 
+    <a class="lang en" href="#languages" style="display:none;">Languages | </a> 
+    <a class="lang en" href="#contact" style="display:none;">Contact </a>
 
   </div>
 
@@ -115,27 +115,6 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
     <span class="flag">🇬🇧</span>
   </div>
 </nav>
-
-<script>
-function switchLang() {
-  const body = document.body;
-  const faTexts = document.querySelectorAll(".lang.fa");
-  const enTexts = document.querySelectorAll(".lang.en");
-
-  if (body.getAttribute("dir") === "rtl") {
-    // تغییر به انگلیسی
-    body.setAttribute("dir", "ltr");
-    faTexts.forEach(el => el.style.display = "none");
-    enTexts.forEach(el => el.style.display = "inline");
-  } else {
-    // تغییر به فارسی
-    body.setAttribute("dir", "rtl");
-    faTexts.forEach(el => el.style.display = "inline");
-    enTexts.forEach(el => el.style.display = "none");
-  }
-}
-</script>
-
 
   
 
