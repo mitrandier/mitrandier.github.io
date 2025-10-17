@@ -215,9 +215,65 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
       </ul>
     </section>
 
-   <div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
-   <div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
+
+
+
+<div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
+<div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+
+   
+    const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'a4'
+    });
+
+    
+    const fontUrl = 'https://rawcdn.githack.com/google/fonts/main/ofl/vazirmatn/Vazirmatn-Regular.ttf';
+    const font = await fetch(fontUrl).then(res => res.arrayBuffer());
+    doc.addFileToVFS('Vazir-Regular.ttf', font);
+    doc.addFont('Vazir-Regular.ttf', 'Vazir', 'normal');
+    doc.setFont('Vazir');
+
+    doc.setFontSize(14);
+
+    
+    const body = document.body;
+    let elements;
+    if(body.getAttribute('dir') === 'rtl'){
+        elements = document.querySelectorAll('.lang.fa');
+        doc.setR2L(true);  
+    } else {
+        elements = document.querySelectorAll('.lang.en');
+        doc.setR2L(false);
+    }
+
+    let y = 40; 
+
+    elements.forEach(el => {
+        const text = el.innerText.trim();
+        if(text){
+            const lines = doc.splitTextToSize(text, 500);
+            doc.text(lines, 40, y);
+            y += lines.length * 20; 
+        }
+    });
+
+    doc.save('resume.pdf');
+}
+</script>
+
+
+    
   </div>
 </main>
 
