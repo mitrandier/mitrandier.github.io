@@ -88,8 +88,7 @@ body.ltr { direction:ltr; text-align:left; }
     <a href="#languages">زبان‌ها</a> |
     <a href="#contact">تماس</a>
   </div>
-
-  <!-- 🔹 دکمه تغییر زبان زیبا -->
+<!-- 🔹 دکمه ثابت تغییر زبان -->
 <div class="lang-switch" onclick="switchLang()" title="تغییر زبان">
   <span class="flag">🇮🇷</span>
   <span class="divider">/</span>
@@ -97,27 +96,35 @@ body.ltr { direction:ltr; text-align:left; }
 </div>
 
 <style>
-/* 🌐 استایل زیبا برای دکمه تغییر زبان */
+/* 🌐 دکمه تغییر زبان ثابت و زیبا */
 .lang-switch {
-  display: inline-flex;
+  position: absolute;
+  top: 25px;              /* فاصله از بالا */
+  left: 40px;             /* فاصله از سمت چپ */
+  z-index: 1000;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   background: linear-gradient(135deg, #0d3b66, #1e6091);
   color: #fff;
-  padding: 10px 18px;
-  border-radius: 40px;
-  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 17px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(13, 59, 102, 0.25);
+  box-shadow: 0 3px 10px rgba(13, 59, 102, 0.25);
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
   user-select: none;
 }
 
-/* ✨ افکت نور روی دکمه هنگام هاور */
+/* افکت هاور */
+.lang-switch:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 16px rgba(13, 59, 102, 0.35);
+}
+
+/* افکت نوری */
 .lang-switch::before {
   content: "";
   position: absolute;
@@ -125,34 +132,29 @@ body.ltr { direction:ltr; text-align:left; }
   left: -60%;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255,255,255,0.3);
   transform: skewX(-25deg);
   transition: 0.6s;
+  border-radius: 30px;
 }
-
 .lang-switch:hover::before {
   left: 130%;
 }
 
-/* 🔆 افکت بزرگ شدن و سایه بیشتر در هاور */
-.lang-switch:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 20px rgba(13, 59, 102, 0.35);
-}
-
-/* 🎨 پرچم‌ها و جداکننده */
+/* پرچم‌ها */
 .lang-switch .flag {
-  font-size: 20px;
+  font-size: 19px;
 }
 .lang-switch .divider {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255,255,255,0.8);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-/* 🕶️ در حالت کلیک‌شده کمی فشرده‌تر می‌شود */
-.lang-switch:active {
-  transform: scale(0.96);
+/* جلوگیری از تغییر مکان در حالت انگلیسی */
+body.ltr .lang-switch {
+  left: 40px; /* ثابت نگه داشتن موقعیت */
+  right: auto;
 }
 </style>
 
