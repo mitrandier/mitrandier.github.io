@@ -224,40 +224,7 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 
     
 
-<div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div> 
-<div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
-<script>
-function downloadPDF() {
-  const body = document.body;
-  const isRTL = body.getAttribute('dir') === 'rtl';
-
-  // فقط بخش main رزومه
-  const resume = document.querySelector('main.container');
-
-  // قبل از PDF گرفتن، متن‌ها را نمایش بده
-  const faElems = resume.querySelectorAll('.lang.fa');
-  const enElems = resume.querySelectorAll('.lang.en');
-
-  if(isRTL){
-    faElems.forEach(el => el.style.display = 'block');
-    enElems.forEach(el => el.style.display = 'none');
-  } else {
-    faElems.forEach(el => el.style.display = 'none');
-    enElems.forEach(el => el.style.display = 'block');
-  }
-
-  const opt = {
-    margin: 10,
-    filename: isRTL ? 'رزومه.pdf' : 'resume.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, logging: false, scrollY: -window.scrollY },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().set(opt).from(resume).save();
-}
-</script>
 
 
     
