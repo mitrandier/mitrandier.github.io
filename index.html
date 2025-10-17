@@ -228,15 +228,14 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 <div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
 <div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
 function downloadPDF() {
   const body = document.body;
   const isRTL = body.getAttribute('dir') === 'rtl';
+
   
- 
   const resume = document.getElementById('resume');
 
 
@@ -251,17 +250,20 @@ function downloadPDF() {
     enElems.forEach(el => el.style.display = 'block');
   }
 
-  const const resume = document.getElementById('resume');
+ 
+  const opt = {
     margin:       10,
     filename:     isRTL ? 'رزومه.pdf' : 'resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, logging: false, scrollY: -window.scrollY },
+    html2canvas:  { scale: 2, logging: false, scrollY: -window.scrollY },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
   html2pdf().set(opt).from(resume).save();
 }
 </script>
+
+    
 
 
 
