@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مهدی میری | IT Engineer & Blockchain Specialist</title>
+<meta name="description" content="رزومه مهدی میری، IT با تجربه در بلاکچین، توسعه وب و اتوماسیون فرآیندها. مشاهده مهارت‌ها، پروژه‌ها و اطلاعات تماس.">
+<link rel="canonical" href="https://mehdimiri.online/">
+<meta name="robots" content="index, follow">
+
 <link href="https://fonts.googleapis.com/css2?family=Vazir&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -29,33 +33,62 @@ a { text-decoration:none; color:#f77f00; }
 .sidebar li { margin-bottom:8px; }
 
 .main { flex:2 1 600px; }
-section { background:#fff; border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+section {
+  background:#fff; border-radius:12px; padding:20px; margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
 section h2 { color:#0d3b66; margin-bottom:15px; }
 
-.lang-switch { cursor:pointer; padding:5px 10px; border:1px solid #0d3b66; border-radius:5px; display:inline-block; margin-bottom:20px; }
-.btn { display:inline-block; padding:8px 15px; background:#0d3b66; color:#fff; border-radius:5px; margin-top:10px; cursor:pointer; text-align:center; }
+.lang-switch {
+  cursor:pointer; padding:5px 10px; border:1px solid #0d3b66;
+  border-radius:5px; display:inline-block; margin-bottom:20px;
+}
+.btn {
+  display:inline-block; padding:8px 15px; background:#0d3b66; color:#fff;
+  border-radius:5px; margin-top:10px; cursor:pointer; text-align:center;
+}
+
 
 body[dir="rtl"] { direction:rtl; text-align:right; }
 body[dir="ltr"] { direction:ltr; text-align:left; }
 
 @media(max-width:900px){ .container { flex-direction:column; } }
 
+
 .lang-switch {
-  position: absolute; top: 18px; left: 500px; z-index:1000;
-  display:flex; align-items:center; justify-content:center; gap:6px;
-  background: linear-gradient(135deg, #0d3b66, #1e6091); color:#fff;
-  padding: 8px 16px; border-radius: 30px; font-size:17px; font-weight:600; cursor:pointer;
-  box-shadow:0 3px 10px rgba(13,59,102,0.25); transition: all 0.3s ease; user-select:none;
+  position: absolute;
+  top: 18px;
+  left: 500px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #0d3b66, #1e6091);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(13, 59, 102, 0.25);
+  transition: all 0.3s ease;
+  user-select: none;
 }
-.lang-switch:hover { transform: scale(1.08); box-shadow:0 5px 16px rgba(13,59,102,0.35); }
-.lang-switch .flag { font-size:19px; }
-.lang-switch .divider { color:rgba(255,255,255,0.8); font-weight:300; font-size:15px; }
+.lang-switch:hover { transform: scale(1.08); box-shadow: 0 5px 16px rgba(13,59,102,0.35); }
+.lang-switch .flag { font-size: 19px; }
+.lang-switch .divider { color: rgba(255,255,255,0.8); font-weight: 300; font-size: 15px; }
 </style>
 </head>
+
 <body dir="rtl">
+
+
 
 <nav class="top-nav" style="text-align:center; margin-top:15px; position:relative;">
   <div class="menu" style="display:flex; justify-content:center; flex-wrap:wrap; align-items:center; gap:10px;">
+
+    
     <a class="lang fa" href="#about">درباره من | </a> 
     <a class="lang fa" href="#skills">مهارت‌ها | </a> 
     <a class="lang fa" href="#projects">پروژه‌ها | </a> 
@@ -64,6 +97,7 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
     <a class="lang fa" href="#languages">زبان‌ها | </a> 
     <a class="lang fa" href="#contact">راه ارتباطی | </a>
 
+    
     <a class="lang en" href="#about" style="display:none;">About Me | </a> 
     <a class="lang en" href="#skills" style="display:none;">Skills | </a> 
     <a class="lang en" href="#projects" style="display:none;">Projects | </a> 
@@ -71,34 +105,45 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
     <a class="lang en" href="#education" style="display:none;">Education | </a> 
     <a class="lang en" href="#languages" style="display:none;">Languages | </a> 
     <a class="lang en" href="#contact" style="display:none;">Contact </a>
+
   </div>
 
-  <div class="lang-switch" onclick="switchLang()" title="تغییر زبان">
-    <span class="flag">🇮🇷</span><span class="divider">/</span><span class="flag">🇬🇧</span>
+  <div class="lang-switch" onclick="switchLang()" title="تغییر زبان"
+       style="margin-left:15px; display:flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0d3b66, #1e6091); color:#fff; padding:6px 12px; border-radius:20px; cursor:pointer; font-weight:bold;">
+    <span class="flag">🇮🇷</span>
+    <span class="divider">/</span>
+    <span class="flag">🇬🇧</span>
   </div>
 </nav>
 
-<!-- Wrapper جدید برای PDF -->
-<div id="pdf-content" class="container">
-  <aside class="sidebar" id="contact">
-    <img class="profile-img" src="assets1/Capture1.JPG" alt="عکس پروفایل" loading="lazy">
-    <div class="lang fa name">مهدی میری</div>
-    <div class="lang en name" style="display:none;">Mehdi Miri</div>
-    <div class="title lang fa">مهندس IT</div>
-    <div class="title lang en" style="display:none;">IT Engineer</div>
 
-    <h3 class="lang fa">راه ارتباطی</h3>
-    <h3 class="lang en" style="display:none;">Contact Information</h3>
+<div id="resume">
+
+  
+<main class="container">
+
+  <aside class="sidebar" id="contact">
+    <img id="profileImg" class="profile-img" src="assets1/Capture1.JPG" alt="عکس پروفایل" loading="lazy">
+    
+   <div class="lang fa name" data-fa="مهدی میری" data-en="Mehdi Miri">مهدی میری</div>
+   <div class="lang en name" style="display:none;">Mehdi Miri</div>
+ 
+    <div class="title lang fa" style="display:block;"> مهندس IT </div>
+    <div class="title lang en" style="display:none;"> IT Engineer</div>
+
+
+    <h3 class="lang fa" data-fa="تماس" data-en="Contact"> راه ارتباطی </h3>
+    <h3 class="lang en" style="display:none;"> Contact Information</h3>
     <ul>
       <li><a href="tel:+989334784321">Call</a></li>
       <li><a href="mailto:Mehdipk89@gmail.com">Email</a></li>
-      <li><a href="https://github.com/mitrandier" target="_blank">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/mehdi-miri/" target="_blank">LinkedIn</a></li>
-      <li><a href="https://t.me/Mitimm" target="_blank">Telegram</a></li>
+      <li><a href="https://github.com/mitrandier" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/mehdi-miri/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://t.me/Mitimm" target="_blank" rel="noopener">Telegram</a></li>
     </ul>
 
-    <h3 class="lang fa">مهارت‌ها</h3>
-    <h3 class="lang en" style="display:none;">Skills</h3>
+    <h3 class="lang fa" id="skills" data-fa="مهارت‌ها" data-en="Skills"> مهارت ها </h3>
+    <h3 class="lang en" style="display:none;"> Skills </h3>
     <ul>
       <li>Networking (+Network)</li>
       <li>SQL & Database Management</li>
@@ -111,13 +156,13 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
       <li>Web Design & Front-end Development (Beginner)</li>
     </ul>
 
-    <h3 class="lang fa">پروژه‌ها</h3>
-    <h3 class="lang en" style="display:none;">Projects</h3>
+    <h3 class="lang fa" id="projects" data-fa="پروژه‌ها" data-en="Projects"> پروژه‌ها </h3>
+    <h3 class="lang en" style="display:none;"> Projects </h3>
     <ul>
-      <li class="lang fa"><a href="https://mehdimiri.online/NotePad/">نوت پد</a></li>
-      <li class="lang en" style="display:none;"><a href="https://mehdimiri.online/NotePad/">NotePad</a></li>
-      <li class="lang fa"><a href="http://mehdimiri.online/Bitcoin-Halving-Countdown/">هالوینگ بیتکوین</a></li>
-      <li class="lang en" style="display:none;"><a href="http://mehdimiri.online/Bitcoin-Halving-Countdown/">Bitcoin Halving</a></li>
+      <li class="lang fa" ><a href="https://mehdimiri.online/NotePad/"> نوت پد </a></li>
+      <li class="lang en" ><a href="https://mehdimiri.online/NotePad/">NotePad</a></li>
+      <li class="lang fa" ><a href="http://mehdimiri.online/Bitcoin-Halving-Countdown/"> هالوینگ بیتکوین </a></li>
+      <li class="lang en" ><a href="http://mehdimiri.online/Bitcoin-Halving-Countdown/">Bitcoin Halving</a></li>
     </ul>
   </aside>
 
@@ -127,13 +172,32 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
       <h2 class="lang en" style="display:none;">About Me</h2>
       <p class="lang fa">مهندس IT و توسعه‌دهنده بلاکچین با تجربه در صنعت رمزارز، توسعه وب و اتوماسیون فرآیندهای سازمانی</p>
       <p class="lang en" style="display:none;">IT engineer and blockchain developer with experience in the cryptocurrency industry, web development, and organizational process automation.</p>
+      <p class="lang fa">تخصص در طراحی و پیاده‌سازی پروژه‌های کاربردی با فناوری‌های نوین مانند بلاکچین، هوش مصنوعی و سیستم‌های خودکار</p>
+      <p class="lang en" style="display:none;">Specialized in designing and implementing practical projects using cutting-edge technologies such as blockchain, artificial intelligence, and automated systems.</p>
     </section>
 
     <section id="experience">
       <h2 class="lang fa">تجارب کاری</h2>
       <h2 class="lang en" style="display:none;">Work Experience</h2>
+
       <p class="lang fa">پشتیبانی فنی کاربران در صرافی رمزارزی exvoto.io</p>
       <p class="lang en" style="display:none;">Provided technical support to users at the cryptocurrency exchange exvoto.io.</p>
+      <p>(2019–2020)</p>
+
+      <p class="lang fa">عضو شتاب دهنده بلاکچینی همپیوند دانشگاه بوعلی سینا همدان hampayvand.com</p>
+      <p class="lang en" style="display:none;">Member of the Hampayvand Blockchain Accelerator at Bu-Ali Sina University, Hamedan (hampayvand.com)</p>
+      <p>(2019–2020)</p>
+
+      <p class="lang fa">همکاری در توسعه و طراحی پلتفرم سلامت مبتنی بر فناوری بلاکچین Hilito</p>
+      <p class="lang en" style="display:none;">Collaborated in the development and design of the blockchain-based health platform, Hilito.</p>
+      <p>(2019–2020)</p>
+
+      <p class="lang fa">فریلنسری در طراحی نرم‌افزار و اتوماسیون فرآیندها</p>
+      <p class="lang en" style="display:none;">Freelance software designer specializing in process automation</p>
+
+      <p class="lang fa">انجام پروژه‌های توسعه وب، طراحی سیستم‌های Workflow Automation و پیاده‌سازی راهکارهای هوش مصنوعی جهت بهینه سازی کارکرد نرم افزارهای تبلیغاتی</p>
+      <p class="lang en" style="display:none;">Handled web development projects, designed workflow automation systems, and applied AI solutions to enhance advertising software performance.</p>
+      <p>(2021–Currently)</p>
     </section>
 
     <section id="education">
@@ -142,58 +206,84 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
       <p class="lang fa"><strong>کارشناسی فناوری اطلاعات</strong> دانشگاه آزاد (2017–2021)</p>
       <p class="lang en" style="display:none;"><strong>Bachelor’s degree in Information Technology</strong> Azad University (2017–2021)</p>
     </section>
-  </div>
-</div>
 
-<div class="lang fa btn" onclick="downloadPDF()">دانلود PDF رزومه</div>
-<div class="lang en btn" onclick="downloadPDF()" style="display:none;">Download Resume PDF</div>
+    <section id="languages">
+      <h2 class="lang fa">زبان‌ها</h2>
+      <h2 class="lang en" style="display:none;">Languages</h2>
+      <ul>
+        <li class="lang fa">فارسی (زبان مادری)</li>
+        <li class="lang en" style="display:none;">Persian (Native)</li>
+        <li class="lang fa">کردی (زبان مادری)</li>
+        <li class="lang en" style="display:none;">Kurdish (Native)</li>
+        <li class="lang fa">انگلیسی (مقدماتی)</li>
+        <li class="lang en" style="display:none;">English (Beginner)</li>
+        <li class="lang fa">آلمانی (حرفه‌ای)</li>
+        <li class="lang en" style="display:none;">German (Professional)</li>
+      </ul>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
 <script>
 function downloadPDF() {
   const body = document.body;
   const isRTL = body.getAttribute('dir') === 'rtl';
-  
-  const content = document.getElementById('pdf-content');
 
-  const faElems = content.querySelectorAll('.lang.fa');
-  const enElems = content.querySelectorAll('.lang.en');
 
-  if(isRTL){
-    faElems.forEach(el=>el.style.display='block');
-    enElems.forEach(el=>el.style.display='none');
-  } else {
-    faElems.forEach(el=>el.style.display='none');
-    enElems.forEach(el=>el.style.display='block');
-  }
+  const resume = document.getElementById('resume');
 
+ 
+  const faElems = resume.querySelectorAll('.lang.fa');
+  const enElems = resume.querySelectorAll('.lang.en');
+
+  faElems.forEach(el => el.style.display = 'block');
+  enElems.forEach(el => el.style.display = 'block');
+
+ 
   const opt = {
     margin: 10,
     filename: isRTL ? 'رزومه.pdf' : 'resume.pdf',
-    image: { type:'jpeg', quality:0.98 },
-    html2canvas: { scale:2, logging:false, scrollY:-window.scrollY },
-    jsPDF: { unit:'mm', format:'a4', orientation:'portrait' }
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, logging: false, scrollY: -window.scrollY },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
-  html2pdf().set(opt).from(content).save();
-}
-
-function switchLang(){
-  const body = document.body;
-  const faTexts = document.querySelectorAll('.lang.fa');
-  const enTexts = document.querySelectorAll('.lang.en');
-
-  if(body.getAttribute("dir")==="rtl"){
-    body.setAttribute("dir","ltr");
-    faTexts.forEach(el=>el.style.display='none');
-    enTexts.forEach(el=>el.style.display='block');
-  } else {
-    body.setAttribute("dir","rtl");
-    faTexts.forEach(el=>el.style.display='block');
-    enTexts.forEach(el=>el.style.display='none');
-  }
+  html2pdf().set(opt).from(resume).save();
 }
 </script>
 
+
+    
+
+
+
+
+    
+  </div>
+</main>
+
+  </div>
+
+<footer style="text-align:center; padding:20px; color:#777;">
+  © 2025 Mehdi Miri | All rights reserved
+</footer>
+
+<script>
+function switchLang() {
+  const body = document.body;
+  const faTexts = document.querySelectorAll(".lang.fa");
+  const enTexts = document.querySelectorAll(".lang.en");
+
+  if(body.getAttribute("dir") === "rtl") {
+    body.setAttribute("dir","ltr");
+    faTexts.forEach(el => el.style.display = "none");
+    enTexts.forEach(el => el.style.display = "block");
+  } else {
+    body.setAttribute("dir","rtl");
+    faTexts.forEach(el => el.style.display = "block");
+    enTexts.forEach(el => el.style.display = "none");
+  }
+}
+</script>
 </body>
 </html>
