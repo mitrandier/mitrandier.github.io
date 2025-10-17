@@ -128,8 +128,8 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
    <div class="lang fa name" data-fa="مهدی میری" data-en="Mehdi Miri">مهدی میری</div>
    <div class="lang en name" style="display:none;">Mehdi Miri</div>
  
-    <div class="title lang fa" style="display:block;">IT مهندس</div>
-    <div class="title lang en" style="display:none;">IT Engineer</div>
+    <div class="title lang fa" style="display:block;"> مهندس IT </div>
+    <div class="title lang en" style="display:none;"> IT Engineer</div>
 
 
     <h3 class="lang fa" data-fa="تماس" data-en="Contact"> راه ارتباطی </h3>
@@ -251,11 +251,11 @@ function downloadPDF() {
     enElems.forEach(el => el.style.display = 'block');
   }
 
-  const resume = document.querySelector('.main');
+  const const resume = document.getElementById('resume');
     margin:       10,
     filename:     isRTL ? 'رزومه.pdf' : 'resume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, logging: false },
+    html2canvas: { scale: 2, logging: false, scrollY: -window.scrollY },
     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
   };
 
