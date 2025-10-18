@@ -56,6 +56,11 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
 
 @media(max-width:900px){ .container { flex-direction:column; } }
 
+  
+  .lang.en { display:none; } /* پنهان کردن زبان انگلیسی هنگام لود اولیه */
+body.loading { visibility:hidden; } /* جلوگیری از فلیکر در هنگام لود */
+body.loaded { visibility:visible; }
+
 
 .lang-switch {
   position: absolute;
@@ -244,7 +249,15 @@ body[dir="ltr"] { direction:ltr; text-align:left; }
   © 2025 Mehdi Miri | All rights reserved
 </footer>
 
-<script>
+
+
+  
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.remove("loading");
+  document.body.classList.add("loaded");
+});
+
 function switchLang() {
   const body = document.body;
   const faTexts = document.querySelectorAll(".lang.fa");
@@ -261,5 +274,9 @@ function switchLang() {
   }
 }
 </script>
+  
+
+
+  
 </body>
 </html>
