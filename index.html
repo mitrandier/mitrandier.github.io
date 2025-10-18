@@ -252,23 +252,39 @@ body.loaded { visibility:visible; }
 
 
   
-  <script>
+ <script>
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.remove("loading");
   document.body.classList.add("loaded");
+
+ 
+  const savedLang = localStorage.getItem("siteLang");
+  if (savedLang === "en") {
+    setLang("en");
+  } else {
+    setLang("fa"); 
+  }
 });
 
 function switchLang() {
-  const body = document.body;
+  const currentDir = document.body.getAttribute("dir");
+  const newLang = currentDir === "rtl" ? "en" : "fa";
+  setLang(newLang);
+
+ 
+  localStorage.setItem("siteLang", newLang);
+}
+
+function setLang(lang) {
   const faTexts = document.querySelectorAll(".lang.fa");
   const enTexts = document.querySelectorAll(".lang.en");
 
-  if(body.getAttribute("dir") === "rtl") {
-    body.setAttribute("dir","ltr");
+  if (lang === "en") {
+    document.body.setAttribute("dir", "ltr");
     faTexts.forEach(el => el.style.display = "none");
     enTexts.forEach(el => el.style.display = "block");
   } else {
-    body.setAttribute("dir","rtl");
+    document.body.setAttribute("dir", "rtl");
     faTexts.forEach(el => el.style.display = "block");
     enTexts.forEach(el => el.style.display = "none");
   }
